@@ -3,27 +3,203 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Kalimati</title>
-  <style>
-    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;line-height:1.6;margin:0;padding:0;color:#222}
-    header{background:#1e88e5;color:#fff;padding:24px}
-    main{max-width:840px;margin:0 auto;padding:24px}
-    a{color:#1e88e5}
-  </style>
+  <title>Kalimati – Master German Faster</title>
+  <meta name="description" content="Kalimati helps Arabic speakers master German vocabulary with smart quizzes, achievements, offline access and a distraction‑free premium tier." />
+  <meta name="theme-color" content="#1e88e5" />
+  <meta property="og:title" content="Kalimati – Master German Faster" />
+  <meta property="og:description" content="Arabic & English meanings · Smart spaced repetition · Achievements · Premium (remove ads)" />
+  <meta property="og:image" content="Untitled-1 (2).png" />
+  <meta property="og:type" content="website" />
   <link rel="canonical" href="/" />
+  <style>
+    :root {
+      --brand:#1e88e5;
+      --brand-accent:#0b6fc0;
+      --bg:#0f151f;
+      --text:#f5f7fa;
+      --muted:#b8c2cc;
+      --radius:18px;
+      --gradient:linear-gradient(135deg,#1e88e5 0%,#2563eb 35%,#9333ea 100%);
+    }
+    * {box-sizing:border-box;}
+    body {margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;line-height:1.55;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;}
+    a {color:var(--brand);text-decoration:none;font-weight:600;}
+    a:hover {text-decoration:underline;}
+    header {position:relative;overflow:hidden;padding:clamp(2rem,6vw,5rem) clamp(1.5rem,5vw,3.5rem);display:grid;gap:2.2rem;max-width:1280px;margin:0 auto;align-items:center;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));}
+    header:before {content:"";position:absolute;inset:0;background:radial-gradient(circle at 30% 30%,rgba(255,255,255,0.15),transparent 60%),radial-gradient(circle at 70% 60%,rgba(255,255,255,0.10),transparent 70%);mix-blend-mode:overlay;pointer-events:none;}
+  .hero-copy h1 {font-size:clamp(2.4rem,5.3vw,3.5rem);line-height:1.08;margin:0;font-weight:800;background:var(--gradient);-webkit-background-clip:text;background-clip:text;color:transparent;}
+    .hero-copy p {font-size:clamp(1rem,1.3vw,1.15rem);max-width:560px;margin:.9rem 0 1.5rem;font-weight:500;color:var(--muted);}
+    .cta-row {display:flex;flex-wrap:wrap;gap:1rem;margin-top:.5rem;}
+    .btn {--shadow:0 8px 28px -6px rgba(30,136,229,.55);cursor:pointer;border:none;outline:none;display:inline-flex;align-items:center;gap:.65rem;font-size:1rem;font-weight:600;border-radius:50px;padding:.9rem 1.4rem;letter-spacing:.3px;transition:.35s;background:var(--gradient);color:#fff;box-shadow:var(--shadow);}
+    .btn:hover {transform:translateY(-2px);box-shadow:0 12px 34px -8px rgba(30,136,229,.6);}
+  .btn.secondary {background:#1e293b;color:#fff;box-shadow:0 6px 24px -6px rgba(0,0,0,.4);} 
+    .btn.secondary:hover {background:#334155;}
+    .hero-media {position:relative;display:flex;justify-content:center;}
+    .hero-media img {width:100%;max-width:420px;border-radius:32px;box-shadow:0 25px 60px -20px rgba(0,0,0,.6),0 0 0 1px rgba(255,255,255,.07);backdrop-filter:blur(2px);}
+  .store-badge {display:inline-flex;align-items:center;gap:.6rem;background:#111827;border:1px solid rgba(255,255,255,.08);color:#fff;border-radius:12px;padding:.6rem .9rem;font-weight:700;box-shadow:0 8px 24px -10px rgba(0,0,0,.6);} 
+  .store-badge svg {width:22px;height:22px;}
+    .section {max-width:1280px;margin:0 auto;padding:clamp(2.5rem,7vw,4.5rem) clamp(1.5rem,5vw,3.5rem);}
+    .section h2 {font-size:clamp(1.9rem,3.5vw,2.6rem);margin:0 0 1.4rem;font-weight:700;}
+    .features-grid {display:grid;gap:1.6rem;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));}
+    .feature {background:#1e293b;border:1px solid rgba(255,255,255,.08);padding:1.2rem 1.1rem 1.25rem;border-radius:24px;display:flex;flex-direction:column;gap:.55rem;position:relative;overflow:hidden;}
+    .feature:before {content:"";position:absolute;inset:0;background:radial-gradient(circle at 80% 20%,rgba(255,255,255,.08),transparent 60%);opacity:.7;}
+    .feature h3 {margin:.2rem 0 .2rem;font-size:1.1rem;font-weight:700;}
+    .feature p {margin:0;font-size:.82rem;line-height:1.4;color:var(--muted);}
+    .pricing {display:grid;gap:2rem;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));align-items:stretch;}
+    .price-card {background:#0f1e2b;border:1px solid rgba(255,255,255,.08);border-radius:28px;padding:2rem 1.6rem;display:flex;flex-direction:column;gap:1.1rem;box-shadow:0 14px 40px -18px rgba(0,0,0,.55);position:relative;}
+    .price-card.highlight {background:linear-gradient(145deg,#1e88e5 0%,#2563eb 45%,#1e293b 100%);}
+    .price-card h3 {margin:0;font-size:1.4rem;font-weight:700;}
+    .price {font-size:2.3rem;font-weight:800;letter-spacing:-1px;}
+    .price small {font-size:.85rem;font-weight:500;color:var(--muted);}    
+    ul.benefits {list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.55rem;font-size:.85rem;}
+    ul.benefits li {display:flex;align-items:flex-start;gap:.55rem;}
+    ul.benefits li:before {content:"✓";color:#10b981;font-weight:700;}
+    .gallery {display:grid;gap:1.2rem;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));}
+    .gallery img {width:100%;border-radius:22px;object-fit:cover;box-shadow:0 10px 30px -12px rgba(0,0,0,.5);transition:.35s;}
+    .gallery img:hover {transform:translateY(-4px) scale(1.03);}
+    footer {padding:3rem 1.5rem;text-align:center;font-size:.8rem;color:var(--muted);}
+    .links {margin:1.2rem 0;display:flex;justify-content:center;gap:1.3rem;flex-wrap:wrap;}
+    .links a {font-weight:500;}
+    .tagline {font-size:.85rem;font-weight:600;text-transform:uppercase;letter-spacing:2px;color:#60a5fa;}
+    .badge {display:inline-flex;align-items:center;gap:.45rem;background:#1e293b;padding:.5rem .9rem;border-radius:40px;font-size:.7rem;font-weight:600;letter-spacing:.5px;color:var(--muted);box-shadow:0 5px 18px -6px rgba(0,0,0,.55);}
+    @media (prefers-color-scheme: light) {body {--bg:#f5f8fb;--text:#111827;--muted:#475569;} .feature, .price-card, .badge {border-color:rgba(0,0,0,.08);} .feature, .price-card {background:#fff;} .price-card.highlight {background:linear-gradient(145deg,#1e88e5 0%,#2563eb 45%,#1e293b 100%);} }
+  </style>
+  <script>
+    // Simple reveal animation
+    document.addEventListener('DOMContentLoaded',()=>{
+      const els=[...document.querySelectorAll('.feature,.price-card,.gallery img')];
+      const io=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.style.transition='opacity .7s ease, transform .7s ease';e.target.style.opacity=1;e.target.style.transform='translateY(0)';}})},{threshold:.15});
+      els.forEach(el=>{el.style.opacity=0;el.style.transform='translateY(24px)';io.observe(el);});
+    });
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Kalimati",
+    "applicationCategory": "EducationalApplication",
+    "operatingSystem": "Android,iOS",
+  "description": "German vocabulary learning app with Arabic & English meanings (selectable interface language), smart quizzes, achievements and premium removal of ads.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
 </head>
 <body>
   <header>
-    <h1>Kalimati – Learn German Vocabulary</h1>
-    <p>Arabic / English meanings, quizzes, achievements.</p>
+    <div class="hero-copy">
+      <div class="badge">🚀 Early Momentum</div>
+      <h1>Master German Vocabulary<br />Faster & Confidently</h1>
+  <p>Kalimati gives learners a focused path to German fluency: curated word packs, instant meanings in <strong>Arabic & English</strong> (choose your interface language), adaptive quizzes, achievements, streak motivators & a premium ad‑free upgrade.</p>
+      <div class="cta-row">
+        <a class="store-badge" href="https://play.google.com/store/apps/details?id=com.kalimati.germanvocab" rel="noopener" target="_blank" aria-label="Get it on Google Play">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M3 2.75c0-.7.78-1.14 1.37-.77l13.53 8.5c.57.36.57 1.2 0 1.56L4.37 20.54C3.78 20.9 3 20.46 3 19.77V2.75z" fill="#34A853"/>
+            <path d="M19.93 11.04L16.5 9-  " fill="none"/>
+            <path d="M4.3 1.98l9.82 6.17-2.17 2.21-9.2-5.78c-.24-.15-.39-.41-.45-.68-.02-.1-.03-.2-.03-.3 0-.66.71-1.08 1.23-.62z" fill="#FBBC05"/>
+            <path d="M13.18 8.15l2.51 1.58-2.5 1.6-2.18-1.35 2.17-1.83z" fill="#4285F4"/>
+            <path d="M3.75 20.34l10.37-6.58 2.18 1.37-11.9 7.55c-.59.37-1.4-.07-1.4-.77 0-.53.28-1.02.75-1.27z" fill="#EA4335"/>
+          </svg>
+          Google Play
+        </a>
+        <a class="btn secondary" href="#pricing">See Plans</a>
+      </div>
+      <p class="tagline">Learn • Retain • Celebrate Progress</p>
+    </div>
+    <div class="hero-media">
+      <img src="Untitled-1 (2).png" alt="Kalimati app preview screens" />
+    </div>
   </header>
-  <main>
-    <p>This site hosts the required <code>app-ads.txt</code> and our legal documents for the Kalimati mobile app.</p>
-    <ul>
-      <li><a href="/privacy-policy.html">Privacy Policy</a></li>
-      <li><a href="https://kalimati-edu.github.io/app-ads.txt">app-ads.txt</a></li>
-    </ul>
-    <p>Contact: <a href="mailto:contact@kalimati.net">contact@kalimati.net</a></p>
-  </main>
+
+  <section class="section" id="features">
+    <h2>Why Kalimati?</h2>
+    <div class="features-grid">
+  <div class="feature"><h3>Instant Meanings (AR & EN)</h3><p>No guessing. Each word comes with clear Arabic & English meanings and usage hints—swap interface language anytime.</p></div>
+      <div class="feature"><h3>Adaptive Quizzes</h3><p>Smart repetition boosts retention; challenging words reappear until mastered.</p></div>
+      <div class="feature"><h3>Achievement System</h3><p>Earn badges for streaks, mastery milestones and learning consistency.</p></div>
+      <div class="feature"><h3>Offline Access</h3><p>Study anywhere—core vocabulary cached locally for quick review.</p></div>
+      <div class="feature"><h3>Progress Insights</h3><p>Track categories, mastery percentage & daily improvement trends.</p></div>
+      <div class="feature"><h3>Premium Mode</h3><p>Remove ads, focus deeply, and unlock accelerated review cadence.</p></div>
+    </div>
+  </section>
+
+  <section class="section" id="gallery">
+    <h2>Inside the App</h2>
+    <div class="gallery">
+      <img src="Untitled-2 (1).png" alt="Vocabulary list view" />
+      <img src="Untitled-3 (1).png" alt="Quiz question example" />
+      <img src="Untitled-4 (1).png" alt="Achievement unlocked screen" />
+      <img src="Untitled-5 (1).png" alt="Category browsing interface" />
+      <img src="Untitled-6 (1).png" alt="Progress statistics dashboard" />
+    </div>
+  </section>
+
+  <section class="section" id="pricing">
+    <h2>Plans</h2>
+    <p style="max-width:760px;color:var(--muted);margin:.2rem 0 1.2rem">All plans include the same features. Free contains ads. Premium removes ads — choose the duration that fits you. Prices are shown in‑app and may vary by region.</p>
+    <div class="pricing">
+      <div class="price-card">
+        <h3>Free</h3>
+        <div class="price">$0 <small>with ads</small></div>
+        <ul class="benefits">
+          <li>All features included</li>
+          <li>Contains ads</li>
+        </ul>
+        <a class="btn secondary" href="https://play.google.com/store/apps/details?id=com.kalimati.germanvocab" target="_blank" rel="noopener">Start Learning</a>
+      </div>
+
+      <div class="price-card highlight">
+        <h3>Premium Annual</h3>
+        <div class="price">12 months</div>
+        <ul class="benefits">
+          <li>All features included</li>
+          <li>No ads</li>
+        </ul>
+        <a class="btn" href="https://play.google.com/store/apps/details?id=com.kalimati.germanvocab" target="_blank" rel="noopener">Upgrade in App</a>
+      </div>
+
+      <div class="price-card">
+        <h3>Premium 6‑Month</h3>
+        <div class="price">6 months</div>
+        <ul class="benefits">
+          <li>All features included</li>
+          <li>No ads</li>
+        </ul>
+        <a class="btn secondary" href="https://play.google.com/store/apps/details?id=com.kalimati.germanvocab" target="_blank" rel="noopener">Upgrade in App</a>
+      </div>
+
+      <div class="price-card">
+        <h3>Premium Lifetime</h3>
+        <div class="price">One‑time</div>
+        <ul class="benefits">
+          <li>All features included</li>
+          <li>No ads</li>
+        </ul>
+        <a class="btn secondary" href="https://play.google.com/store/apps/details?id=com.kalimati.germanvocab" target="_blank" rel="noopener">Upgrade in App</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="cta">
+    <h2>Ready to Accelerate Your German?</h2>
+    <p style="max-width:680px;font-size:1.05rem;color:var(--muted);">Every session in Kalimati compounds your progress. Install now, claim your first achievement, and experience a smarter way to memorize German vocabulary with Arabic clarity.</p>
+    <div class="cta-row" style="margin-top:1.4rem;">
+      <a class="btn" href="https://play.google.com/store/apps/details?id=com.kalimati.germanvocab" target="_blank" rel="noopener">Install Kalimati</a>
+      <a class="btn secondary" href="#features">Explore Features</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="links">
+      <a href="/privacy-policy.html">Privacy Policy</a>
+      <a href="/app-ads.txt">app-ads.txt</a>
+      <a href="mailto:contact@kalimati.net">Contact</a>
+    </div>
+    <div>&copy; <span id="year"></span> Kalimati. All rights reserved.</div>
+  </footer>
+  <script>document.getElementById('year').textContent=new Date().getFullYear();</script>
 </body>
 </html>
